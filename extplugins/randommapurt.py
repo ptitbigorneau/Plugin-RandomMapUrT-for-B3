@@ -99,8 +99,6 @@ class RandommapurtPlugin(b3.plugin.Plugin):
 
     def randommap(self):
 
-        nmap = 0
-
         mapcycletxt = self.console.getCvar('g_mapcycle').getString()
         homepath = self.console.getCvar('fs_homepath').getString()
         gamepath = self.console.getCvar('fs_game').getString()
@@ -132,6 +130,21 @@ class RandommapurtPlugin(b3.plugin.Plugin):
             
                         if "}" in ligne:
                             self._test = None
+        self.random()
+
+        cmap = self.console.game.mapName
+
+        if cmap == self.nextmap:
+
+            self.random()
+                
+        thread.start_new_thread(self.wait, (60,))
+
+        self.console.write("g_nextmap %s"%self.nextmap)
+
+    def random(self):
+
+        nmap = 0
 
         for map in self._listmap:
             nmap += 1
@@ -141,16 +154,7 @@ class RandommapurtPlugin(b3.plugin.Plugin):
         x = namap
         self.nextmap = self._listmap[x]
 
-        cmap = self.console.game.mapName
-
-        if cmap == self.nextmap:
-
-            x += 1
-            self.nextmap = self_listmap[x]
-                
-        thread.start_new_thread(self.wait, (60,))
-
-        self.console.write("g_nextmap %s"%self.nextmap)
+        return
 
     def wait(self, temps):
 
