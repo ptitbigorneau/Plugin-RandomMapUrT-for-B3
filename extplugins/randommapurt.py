@@ -26,7 +26,7 @@ class RandommapurtPlugin(b3.plugin.Plugin):
             self.error('Could not find admin plugin')
             return False
         
-        self.registerEvent(b3.events.EVT_GAME_ROUND_START)
+        self.registerEvent(b3.events.EVT_GAME_MAP_CHANGE)
 
         self._adminPlugin.registerCommand(self, 'randommap',self._adminlevel, self.cmd_randommap)
         
@@ -40,7 +40,7 @@ class RandommapurtPlugin(b3.plugin.Plugin):
 
     def onEvent(self, event):
         
-        if event.type == b3.events.EVT_GAME_ROUND_START:
+        if event.type == b3.events.EVT_GAME_MAP_CHANGE:
 
             if self._rmonoff == "on":
 
