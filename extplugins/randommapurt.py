@@ -1,7 +1,7 @@
 # RandomMapUrT Plugin
 
 __author__  = 'PtitBigorneau www.ptitbigorneau.fr'
-__version__ = '1.0'
+__version__ = '1.0.1'
 
 import b3
 import b3.plugin
@@ -112,7 +112,7 @@ class RandommapurtPlugin(b3.plugin.Plugin):
         for ligne in contenu:
             
             ligne = ligne.replace("\n", "")
-            ligne = ligne.replace("\r\n", "")
+            ligne = ligne.replace("\r", "")
             ligne = ligne.replace(" ", "")
             
             if ligne != "":
@@ -134,13 +134,14 @@ class RandommapurtPlugin(b3.plugin.Plugin):
 
         cmap = self.console.game.mapName
 
-        if cmap == self.nextmap:
+        if cmap == self.nextmap or self.nextmap == "":
 
             self.random()
-                
-        thread.start_new_thread(self.wait, (60,))
+
+        thread.start_new_thread(self.wait, (50,))
 
         self.console.write("g_nextmap %s"%self.nextmap)
+        self._listmap = []
 
     def random(self):
 
@@ -167,3 +168,5 @@ class RandommapurtPlugin(b3.plugin.Plugin):
         elif map[:3] == 'ut_': map = map[3:]
 
         self.console.write('bigtext "^2Random Nextmap: ^4%s^7"'%map)
+
+
