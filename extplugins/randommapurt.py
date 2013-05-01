@@ -1,7 +1,7 @@
 # RandomMapUrT Plugin
 
 __author__  = 'PtitBigorneau www.ptitbigorneau.fr'
-__version__ = '1.0.1'
+__version__ = '1.1'
 
 import b3
 import b3.plugin
