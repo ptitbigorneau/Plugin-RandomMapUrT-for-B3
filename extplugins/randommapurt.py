@@ -7,7 +7,7 @@ import b3
 import b3.plugin
 import b3.events
 import random
-import b3, time, threading, thread
+import time, threading, thread
 
 class RandommapurtPlugin(b3.plugin.Plugin):
     
