@@ -1,13 +1,25 @@
 # RandomMapUrT Plugin
 
 __author__  = 'PtitBigorneau www.ptitbigorneau.fr'
-__version__ = '1.1'
+__version__ = '1.2'
 
 import b3
 import b3.plugin
 import b3.events
 import random
 import time, threading, thread
+
+def fexist(fichier):
+    
+    try:
+    
+        file(fichier)
+     
+        return True
+   
+    except:
+  
+        return False 
 
 class RandommapurtPlugin(b3.plugin.Plugin):
     
@@ -152,8 +164,16 @@ class RandommapurtPlugin(b3.plugin.Plugin):
 
         mapcycletxt = self.console.getCvar('g_mapcycle').getString()
         homepath = self.console.getCvar('fs_homepath').getString()
+        basepath = self.console.getCvar('fs_basepath').getString()
         gamepath = self.console.getCvar('fs_game').getString()
-        mapcyclefile = homepath + "/" + gamepath + "/" + mapcycletxt
+
+        mapcyclefile = basepath + "/" + gamepath + "/" + mapcycletxt
+
+        if fexist(mapcyclefile) == False:
+                
+            mapcyclefile = homepath + "/" + gamepath + "/" + mapcycletxt
+
+        self.debug('Mapcycle : %s' % mapcyclefile)
 
         fichier = open(mapcyclefile, "r")
 

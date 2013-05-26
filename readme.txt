@@ -1,8 +1,8 @@
 # randommapurt plugin
-# Plugin for B3 (www.bigbrotherbot.com)
+# Plugin for B3 (www.bigbrotherbot.net)
 # www.ptitbigorneau.fr
 
-randommapurt B3 plugin (v1.1) for Urban Terror
+randommapurt B3 plugin (v1.2) for Urban Terror
 
 Installation:
 
