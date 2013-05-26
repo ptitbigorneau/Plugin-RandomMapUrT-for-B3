@@ -121,9 +121,11 @@ class RandommapurtPlugin(b3.plugin.Plugin):
 
                         x += 1
 
+                    self.nextmap = self._listmap[x]
+
                     thread.start_new_thread(self.wait, (50,))
 
-                    self.console.write("g_nextmap %s"%self._listmap[x])
+                    self.console.write("g_nextmap %s"%self.nextmap)
 
                 if self._shufflemapcycle == "off":
 
