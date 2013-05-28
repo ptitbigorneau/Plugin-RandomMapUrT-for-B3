@@ -363,9 +363,9 @@ class RandommapurtPlugin(b3.plugin.Plugin):
 
             map = self._listmap[0]
 
-        map = self.ut4mapname(map)
+        self.console.write("g_nextmap %s"%map)
 
-        self.console.write("g_nextmap %s"%self._listmap[1])
+        map = self.ut4mapname(map)
 
         client.message('ShuffleMapcycle Nextmap : %s'%map)
 
