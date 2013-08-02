@@ -179,7 +179,7 @@ class RandommapurtPlugin(b3.plugin.Plugin):
 
         fichier = open(mapcyclefile, "r")
 
-        contenu = contenu = fichier.readlines()
+        contenu = fichier.readlines()
         fichier.close()
 
         for ligne in contenu:
